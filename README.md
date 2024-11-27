@@ -6,6 +6,9 @@
 
 ![qqman.gif](tools/qqman.gif)
 
+## Note
+This is a forked version of the original package qqman to allow me (Carmelo Fruciano) a little bit of a different output (e.g., setting the colour of highlighted markers).
+
 ## Citation
 
 If you'd like to cite qqman (appreciated but not required), please cite the publication below:

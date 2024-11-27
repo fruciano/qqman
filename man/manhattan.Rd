@@ -15,6 +15,7 @@ manhattan(
   suggestiveline = -log10(1e-05),
   genomewideline = -log10(5e-08),
   highlight = NULL,
+  highlight_color = "green3",
   logp = TRUE,
   annotatePval = NULL,
   annotateTop = TRUE,
@@ -50,6 +51,9 @@ specifying the chromosome labels (e.g., \code{c(1:22, "X", "Y", "MT")}).}
 
 \item{highlight}{A character vector of SNPs in your dataset to highlight. 
 These SNPs should all be in your dataset.}
+
+\item{highlight_color}{The color of highlighted SNPs, if any.
+Default is "green3." (as per original qqman implementation)}
 
 \item{logp}{If TRUE, the -log10 of the p-value is plotted. It isn't very 
 useful to plot raw p-values, but plotting the raw value could be useful for

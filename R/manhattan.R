@@ -22,6 +22,8 @@
 #'   -log10(5e-8). Set to FALSE to disable.
 #' @param highlight A character vector of SNPs in your dataset to highlight. 
 #'   These SNPs should all be in your dataset.
+#' @param highlight_color The color of highlighted SNPs, if any.
+#' Default is "green3." (as per original qqman implementation)
 #' @param logp If TRUE, the -log10 of the p-value is plotted. It isn't very 
 #'   useful to plot raw p-values, but plotting the raw value could be useful for
 #'   other genome-wide plots, for example, peak heights, bayes factors, test 
@@ -48,7 +50,8 @@
 manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP", 
                       col=c("gray10", "gray60"), chrlabs=NULL,
                       suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8), 
-                      highlight=NULL, logp=TRUE, annotatePval = NULL, annotateTop = TRUE, ...) {
+                      highlight=NULL, highlight_color="green3", 
+                      logp=TRUE, annotatePval = NULL, annotateTop = TRUE, ...) {
 
     # Not sure why, but package check will warn without this.
     CHR=BP=P=index=NULL
@@ -208,7 +211,7 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
     if (!is.null(highlight)) {
         if (any(!(highlight %in% d$SNP))) warning("You're trying to highlight SNPs that don't exist in your results.")
         d.highlight=d[which(d$SNP %in% highlight), ]
-        with(d.highlight, points(pos, logp, col="green3", pch=20, ...)) 
+        with(d.highlight, points(pos, logp, col=highlight_color, pch=20, ...)) 
     }
     
     # Highlight top SNPs

@@ -15,6 +15,6 @@ License: GPL-3
 LazyData: true
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 URL: https://github.com/stephenturner/qqman
 BugReports: https://github.com/stephenturner/qqman/issues
