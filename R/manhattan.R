@@ -20,6 +20,7 @@
 #'   -log10(1e-5). Set to FALSE to disable.
 #' @param genomewideline Where to draw a "genome-wide sigificant" line. Default 
 #'   -log10(5e-8). Set to FALSE to disable.
+#' @param pch_base,pch_highlight The base plotting character. Default is 20 (bullet).
 #' @param highlight A character vector of SNPs in your dataset to highlight. 
 #'   These SNPs should all be in your dataset.
 #' @param highlight_color The color of highlighted SNPs, if any.
@@ -49,8 +50,9 @@
 
 manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP", 
                       col=c("gray10", "gray60"), chrlabs=NULL,
-                      suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8), 
-                      highlight=NULL, highlight_color="green3", 
+                      suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8),
+                      pch_base=20
+                      highlight=NULL, highlight_color="green3", pch_highlight=20,
                       logp=TRUE, annotatePval = NULL, annotateTop = TRUE, ...) {
 
     # Not sure why, but package check will warn without this.
@@ -156,7 +158,7 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
     # The new way to initialize the plot.
     ## See http://stackoverflow.com/q/23922130/654296
     ## First, define your default arguments
-    def_args <- list(xaxt='n', bty='n', xaxs='i', yaxs='i', las=1, pch=20,
+    def_args <- list(xaxt='n', bty='n', xaxs='i', yaxs='i', las=1, pch=pch_base,
                      xlim=c(xmin,xmax), ylim=c(0,ceiling(max(d$logp))),
                      xlab=xlabel, ylab=expression(-log[10](italic(p))))
     ## Next, get a list of ... arguments
@@ -198,7 +200,7 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
         icol=1
         for (i in unique(d$index)) {
             #with(d[d$index==unique(d$index)[i], ], points(pos, logp, col=col[icol], pch=20, ...))
-	    points(d[d$index==i,"pos"], d[d$index==i,"logp"], col=col[icol], pch=20, ...)
+	    points(d[d$index==i,"pos"], d[d$index==i,"logp"], col=col[icol], pch=pch_base, ...)
             icol=icol+1
         }
     }
@@ -211,7 +213,7 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
     if (!is.null(highlight)) {
         if (any(!(highlight %in% d$SNP))) warning("You're trying to highlight SNPs that don't exist in your results.")
         d.highlight=d[which(d$SNP %in% highlight), ]
-        with(d.highlight, points(pos, logp, col=highlight_color, pch=20, ...)) 
+        with(d.highlight, points(pos, logp, col=highlight_color, pch=pch_highlight, ...)) 
     }
     
     # Highlight top SNPs

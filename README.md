@@ -1,13 +1,16 @@
 # qqman: An R package for creating Q-Q and manhattan plots from GWAS results.
 
+## Note
+This is a forked version of the original package qqman to allow me (Carmelo Fruciano) a little bit of a different output (e.g., setting the colour of highlighted markers).
+Defaults correspond to the original implementation.
+
+
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qqman)](https://cran.r-project.org/package=qqman)
 
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.00731/status.svg)](https://doi.org/10.21105/joss.00731)
 
 ![qqman.gif](tools/qqman.gif)
 
-## Note
-This is a forked version of the original package qqman to allow me (Carmelo Fruciano) a little bit of a different output (e.g., setting the colour of highlighted markers).
 
 ## Citation
 
