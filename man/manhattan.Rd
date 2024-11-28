@@ -14,8 +14,10 @@ manhattan(
   chrlabs = NULL,
   suggestiveline = -log10(1e-05),
   genomewideline = -log10(5e-08),
+  pch_base = 20,
   highlight = NULL,
   highlight_color = "green3",
+  pch_highlight = 20,
   logp = TRUE,
   annotatePval = NULL,
   annotateTop = TRUE,
@@ -48,6 +50,8 @@ specifying the chromosome labels (e.g., \code{c(1:22, "X", "Y", "MT")}).}
 
 \item{genomewideline}{Where to draw a "genome-wide sigificant" line. Default 
 -log10(5e-8). Set to FALSE to disable.}
+
+\item{pch_base, pch_highlight}{The base plotting character. Default is 20 (bullet).}
 
 \item{highlight}{A character vector of SNPs in your dataset to highlight. 
 These SNPs should all be in your dataset.}
