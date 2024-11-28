@@ -51,7 +51,7 @@
 manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP", 
                       col=c("gray10", "gray60"), chrlabs=NULL,
                       suggestiveline=-log10(1e-5), genomewideline=-log10(5e-8),
-                      pch_base=20
+                      pch_base=20,
                       highlight=NULL, highlight_color="green3", pch_highlight=20,
                       logp=TRUE, annotatePval = NULL, annotateTop = TRUE, ...) {
 
